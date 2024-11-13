@@ -12,6 +12,14 @@ cd dashboard-project
 npm install
 ```
 
+Start the development server:
+
+```bash
+npm run dev
+```
+
+Visit http://localhost:5173 in your browser (or click the link in your terminal).
+
 ## Want to Help?
 
 Here is how you can contribute to this project:
