@@ -4,6 +4,7 @@ import viteLogo from '/vite.svg';
 import './App.css';
 import { Icon } from './components/ui/icons';
 import { Logo } from './components/ui/logo';
+import { LayoutNav } from './features/layout/components/LayoutNav';
 
 function App() {
 	const [count, setCount] = useState(0);
@@ -11,6 +12,7 @@ function App() {
 	return (
 		<>
 			<Logo text="Vite + React" />
+			<LayoutNav className="mt-4" />
 			<div>
 				<a href="https://vite.dev" target="_blank">
 					<img src={viteLogo} className="logo" alt="Vite logo" />
