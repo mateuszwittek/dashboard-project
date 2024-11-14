@@ -1,40 +1,47 @@
-import { useState } from 'react';
-import reactLogo from './assets/react.svg';
-import viteLogo from '/vite.svg';
-import './App.css';
-import { Icon } from './components/ui/icons';
-import { Logo } from './components/ui/logo';
-import { LayoutNav } from './features/layout/components/LayoutNav';
+import { Routes, Route } from 'react-router-dom';
+import { ROUTES } from '@/config/routes';
+import { Layout } from '@/features/layout';
 
-function App() {
-	const [count, setCount] = useState(0);
-
+// Temporary page components until we create proper ones
+const DashboardPage = (): JSX.Element => {
 	return (
-		<>
-			<Logo text="Vite + React" />
-			<LayoutNav className="mt-4" />
-			<div>
-				<a href="https://vite.dev" target="_blank">
-					<img src={viteLogo} className="logo" alt="Vite logo" />
-				</a>
-				<a href="https://react.dev" target="_blank">
-					<img src={reactLogo} className="logo react" alt="React logo" />
-				</a>
-			</div>
-			<div className="card">
-				<button onClick={() => setCount((count) => count + 1)}>
-					count is {count}
-				</button>
-				<p>
-					Edit <code>src/App.tsx</code> and save to test HMR
-				</p>
-				<Icon type="dashboard" />
-			</div>
-			<p className="read-the-docs">
-				Click on the Vite and React logos to learn mor
+		<div className="rounded-dashboard bg-card p-5">
+			<h1 className="text-xl font-bold text-card-foreground">Dashboard</h1>
+			<p className="mt-2 text-secondary-foreground">Welcome to TaskFlow!</p>
+		</div>
+	);
+};
+
+const TasksPage = (): JSX.Element => {
+	return (
+		<div className="rounded-dashboard bg-card p-5">
+			<h1 className="text-xl font-bold text-card-foreground">Tasks</h1>
+			<p className="mt-2 text-secondary-foreground">
+				Task management coming soon
 			</p>
-		</>
+		</div>
+	);
+};
+
+const ProjectsPage = (): JSX.Element => {
+	return (
+		<div className="rounded-dashboard bg-card p-5">
+			<h1 className="text-xl font-bold text-card-foreground">Projects</h1>
+			<p className="mt-2 text-secondary-foreground">
+				Project management coming soon
+			</p>
+		</div>
+	);
+};
+
+export default function App(): JSX.Element {
+	return (
+		<Layout>
+			<Routes>
+				<Route path={ROUTES.DASHBOARD} element={<DashboardPage />} />
+				<Route path={ROUTES.TASKS} element={<TasksPage />} />
+				<Route path={ROUTES.PROJECTS} element={<ProjectsPage />} />
+			</Routes>
+		</Layout>
 	);
 }
-
-export default App;
