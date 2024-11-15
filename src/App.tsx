@@ -7,6 +7,7 @@ import { ErrorFallback } from '@/components/error';
 import DashboardPage from '@/pages/dashboard';
 import TasksPage from '@/pages/tasks';
 import ProjectsPage from '@/pages/projects';
+import NotFoundPage from '@/pages/not-found';
 
 export default function App(): JSX.Element {
 	const { t } = useTranslation();
@@ -27,6 +28,7 @@ export default function App(): JSX.Element {
 					<Route path={ROUTES.DASHBOARD} element={<DashboardPage />} />
 					<Route path={ROUTES.TASKS} element={<TasksPage />} />
 					<Route path={ROUTES.PROJECTS} element={<ProjectsPage />} />
+					<Route path="*" element={<NotFoundPage />} />
 				</Routes>
 			</Layout>
 		</ErrorBoundary>

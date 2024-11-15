@@ -16,6 +16,8 @@ const resources = {
 			},
 			actions: {
 				tryAgain: 'Try again',
+				goBack: 'Go Back',
+				goHome: 'Go Home',
 			},
 		},
 		error: {
@@ -26,6 +28,11 @@ const resources = {
 			navigation: {
 				title: 'Navigation Error',
 				action: 'Retry Loading Navigation',
+			},
+			notFound: {
+				title: 'Page Not Found',
+				description:
+					"The page you are looking for doesn't exist or has been moved",
 			},
 		},
 	},
@@ -42,6 +49,8 @@ const resources = {
 			},
 			actions: {
 				tryAgain: 'Spróbuj ponownie',
+				goBack: 'Wróć',
+				goHome: 'Strona główna',
 			},
 		},
 		error: {
@@ -52,6 +61,11 @@ const resources = {
 			navigation: {
 				title: 'Błąd nawigacji',
 				action: 'Spróbuj załadować nawigację ponownie',
+			},
+			notFound: {
+				title: 'Nie znaleziono strony',
+				description:
+					'Strona, której szukasz nie istnieje lub została przeniesiona',
 			},
 		},
 	},
