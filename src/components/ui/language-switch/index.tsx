@@ -23,7 +23,7 @@ export function LanguageSwitch({
 			{languages.map(({ code, name }) => (
 				<button
 					className={cn(
-						'rounded-dashboard px-3 py-1.5 text-sm font-medium',
+						'w-full rounded-dashboard px-3 py-1.5 text-sm font-medium',
 						'transition-colors duration-200',
 						'focus-visible:outline-none focus-visible:ring-2',
 						'focus-visible:ring-primary focus-visible:ring-offset-2',

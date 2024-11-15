@@ -13,7 +13,7 @@ export const LayoutSidebar = ({
 	return (
 		<aside
 			className={cn(
-				'flex h-screen w-[200px] flex-shrink-0 flex-col gap-8 bg-sidebar p-5',
+				'flex h-screen w-[200px] flex-shrink-0 flex-col bg-sidebar p-5',
 				className,
 			)}
 			aria-label="Sidebar"
@@ -23,7 +23,7 @@ export const LayoutSidebar = ({
 				<LayoutNav />
 			</div>
 
-			<LanguageSwitch className="mt-auto pb-2" />
+			<LanguageSwitch className="mt-auto grid w-full grid-cols-2 gap-2 pb-2" />
 		</aside>
 	);
 };
