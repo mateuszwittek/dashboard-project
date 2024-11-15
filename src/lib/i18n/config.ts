@@ -57,6 +57,17 @@ const resources = {
 	},
 } as const;
 
+type Resources = typeof resources;
+
+// this ensures that keys are validated at compile time, preventing typos
+declare module 'i18next' {
+	interface CustomTypeOptions {
+		defaultNS: 'common';
+		resources: Resources;
+		returnNull: false;
+	}
+}
+
 i18n
 	.use(LanguageDetector)
 	.use(initReactI18next)
