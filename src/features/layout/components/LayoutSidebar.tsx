@@ -1,5 +1,6 @@
 import { cn } from '@/lib/utils/cn';
 import { Logo } from '@/components/ui/logo';
+import { LanguageSwitch } from '@/components/ui/language-switch';
 import { LayoutNav } from './LayoutNav';
 
 type LayoutSidebarProps = {
@@ -17,8 +18,12 @@ export const LayoutSidebar = ({
 			)}
 			aria-label="Sidebar"
 		>
-			<Logo text="TaskProject" />
-			<LayoutNav />
+			<div className="flex flex-1 flex-col gap-8">
+				<Logo text="TaskProject" />
+				<LayoutNav />
+			</div>
+
+			<LanguageSwitch className="mt-auto pb-2" />
 		</aside>
 	);
 };
