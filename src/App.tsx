@@ -1,6 +1,9 @@
 import { Routes, Route } from 'react-router-dom';
+import { ErrorBoundary } from 'react-error-boundary';
+import { useTranslation } from 'react-i18next';
 import { ROUTES } from '@/config/routes';
 import { Layout } from '@/features/layout';
+import { ErrorFallback } from '@/components/error';
 
 // Temporary page components until we create proper ones
 const DashboardPage = (): JSX.Element => {
@@ -35,13 +38,26 @@ const ProjectsPage = (): JSX.Element => {
 };
 
 export default function App(): JSX.Element {
+	const { t } = useTranslation();
+
 	return (
-		<Layout>
-			<Routes>
-				<Route path={ROUTES.DASHBOARD} element={<DashboardPage />} />
-				<Route path={ROUTES.TASKS} element={<TasksPage />} />
-				<Route path={ROUTES.PROJECTS} element={<ProjectsPage />} />
-			</Routes>
-		</Layout>
+		<ErrorBoundary
+			FallbackComponent={(props) => (
+				<ErrorFallback
+					{...props}
+					title={t('error.default.title')}
+					actionLabel={t('error.default.action')}
+				/>
+			)}
+			onReset={() => window.location.reload()}
+		>
+			<Layout>
+				<Routes>
+					<Route path={ROUTES.DASHBOARD} element={<DashboardPage />} />
+					<Route path={ROUTES.TASKS} element={<TasksPage />} />
+					<Route path={ROUTES.PROJECTS} element={<ProjectsPage />} />
+				</Routes>
+			</Layout>
+		</ErrorBoundary>
 	);
 }
