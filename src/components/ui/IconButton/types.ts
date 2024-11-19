@@ -1,4 +1,3 @@
-import { Icon } from '@/components/ui/icons';
 import type { ButtonHTMLAttributes } from 'react';
 import { IconType } from '../icons/types';
 
