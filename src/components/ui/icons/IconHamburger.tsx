@@ -1,12 +1,13 @@
 import { cn } from '@/lib/utils/cn';
-import type { IconProps } from './types';
+import type { IconHamburgerProps } from './types';
 
 export const IconHamburger = ({
-	type,
-	isOpen,
 	className,
+	'data-state': dataState,
 	...props
-}: IconProps): JSX.Element => {
+}: IconHamburgerProps): JSX.Element => {
+	const isOpen = dataState === 'open';
+
 	return (
 		<svg
 			xmlns="http://www.w3.org/2000/svg"
@@ -17,11 +18,12 @@ export const IconHamburger = ({
 			strokeLinecap="round"
 			className={cn('h-4 w-4', className)}
 			aria-hidden
+			data-state={dataState}
 			{...props}
 		>
 			<path
 				className={cn(
-					'origin-center transition-transform duration-200 ease-in-out',
+					'origin-center transition-all duration-200 ease-in-out',
 					isOpen && 'translate-y-[7px] rotate-45',
 				)}
 				d="M4 6h16"
@@ -35,7 +37,7 @@ export const IconHamburger = ({
 			/>
 			<path
 				className={cn(
-					'origin-center transition-transform duration-200 ease-in-out',
+					'origin-center transition-all duration-200 ease-in-out',
 					isOpen && 'translate-y-[-7px] -rotate-45',
 				)}
 				d="M4 18h16"

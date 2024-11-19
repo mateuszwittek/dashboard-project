@@ -17,7 +17,6 @@ export const Icon = memo(function Icon({
 	...props
 }: IconProps): JSX.Element {
 	const IconElement = iconMapping[type];
-
 	return (
 		<IconElement type={type} className={className} aria-hidden {...props} />
 	);

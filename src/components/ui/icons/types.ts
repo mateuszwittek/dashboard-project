@@ -12,5 +12,10 @@ export type IconType = (typeof ICON_TYPES)[keyof typeof ICON_TYPES];
 
 export type IconProps = {
 	type: IconType;
-	isOpen?: boolean;
 } & Omit<ComponentProps<LucideIcon>, 'ref'>;
+
+export type IconHamburgerProps = {
+	isOpen?: boolean;
+	className?: string;
+	'data-state'?: 'open' | 'closed';
+} & ComponentProps<'svg'>;
