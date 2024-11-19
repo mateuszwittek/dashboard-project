@@ -1,54 +1,52 @@
-import { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
-import type { IconType } from '@/components/ui/icons/types';
 import { cn } from '@/lib/utils/cn';
 import { ROUTES } from '@/config/routes';
+import type { IconType } from '@/components/ui/icons/types';
 import { NavLink } from './NavLink';
-
-type NavItem = {
-	to: string;
-	label: string;
-	icon: IconType;
-	end?: boolean;
-};
 
 type LayoutNavProps = {
 	className?: string;
 };
 
-const navItems: NavItem[] = [
+type NavItem = {
+	to: string;
+	labelKey: string;
+	icon: IconType;
+	end?: boolean;
+};
+
+const NAV_ITEMS: NavItem[] = [
 	{
 		to: ROUTES.DASHBOARD,
-		label: 'navigation.dashboard',
 		icon: 'dashboard',
+		labelKey: 'navigation.dashboard',
 		end: true,
 	},
-	{ to: ROUTES.TASKS, label: 'navigation.tasks', icon: 'tasks' },
-	{ to: ROUTES.PROJECTS, label: 'navigation.projects', icon: 'projects' },
+	{
+		to: ROUTES.TASKS,
+		icon: 'tasks',
+		labelKey: 'navigation.tasks',
+	},
+	{
+		to: ROUTES.PROJECTS,
+		icon: 'projects',
+		labelKey: 'navigation.projects',
+	},
 ] as const;
 
-export const LayoutNav = ({ className }: LayoutNavProps): JSX.Element => {
+export function LayoutNav({ className }: LayoutNavProps): JSX.Element {
 	const { t } = useTranslation();
-
-	const translatedNavItems = useMemo(
-		() =>
-			navItems.map((item) => ({
-				...item,
-				label: t(item.label),
-			})),
-		[t],
-	);
 
 	return (
 		<nav
 			className={cn('flex flex-col gap-2', className)}
-			aria-label="Main navigation"
+			aria-label={t('aria.mainNavigation')}
 		>
-			{translatedNavItems.map(({ to, label, icon, end }) => (
+			{NAV_ITEMS.map(({ to, icon, labelKey, end }) => (
 				<NavLink key={to} to={to} icon={icon} end={end}>
-					{label}
+					{t(labelKey)}
 				</NavLink>
 			))}
 		</nav>
 	);
-};
+}

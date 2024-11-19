@@ -9,15 +9,21 @@ const resources = {
 				dashboard: 'Dashboard',
 				tasks: 'Tasks',
 				projects: 'Projects',
+				toggleMenu: 'Toggle navigation menu',
 			},
 			aria: {
 				sidebar: 'Sidebar',
 				mainNavigation: 'Main navigation',
+				currentPage: 'Current page',
 			},
 			actions: {
 				tryAgain: 'Try again',
 				goBack: 'Go Back',
 				goHome: 'Go Home',
+			},
+			languages: {
+				en: 'English',
+				pl: 'Polish',
 			},
 		},
 		error: {
@@ -42,15 +48,21 @@ const resources = {
 				dashboard: 'Panel',
 				tasks: 'Zadania',
 				projects: 'Projekty',
+				toggleMenu: 'Przełącz menu nawigacji',
 			},
 			aria: {
 				sidebar: 'Panel boczny',
 				mainNavigation: 'Nawigacja główna',
+				currentPage: 'Obecna strona',
 			},
 			actions: {
 				tryAgain: 'Spróbuj ponownie',
 				goBack: 'Wróć',
 				goHome: 'Strona główna',
+			},
+			languages: {
+				en: 'Angielski',
+				pl: 'Polski',
 			},
 		},
 		error: {
